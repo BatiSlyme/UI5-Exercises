@@ -1,0 +1,78 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGAMES_SRV_01" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Image" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Component of the Version Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Content" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Binary String" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mimetype" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Character 100"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Games" sap:content-version="1">
+				<Key><PropertyRef Name="Name"/></Key><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zpatch" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="patch" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ZgameId" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="GAMEID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zmode" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="mode" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zserver" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="server" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zlanguage" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="language" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zregion" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="region" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="toPlayers" Relationship="ZGAMES_SRV_01.Gameplayer" FromRole="FromRole_Gameplayer" ToRole="ToRole_Gameplayer"/></EntityType>
+			<EntityType Name="Players" sap:content-version="1">
+				<Key><PropertyRef Name="Zusername"/></Key><Property Name="Zusername" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zemail" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zpassword" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Initial PW"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zcountry" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Zip" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="IP address" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Game" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ZC_GAMESType" sap:label="Games view for consumption" sap:content-version="1">
+				<Key><PropertyRef Name="Name"/></Key><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Name 1" sap:quickinfo="Name"/><Property Name="Patch" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="patch" sap:quickinfo="Version of Game"/><Property Name="Region" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="region"
+					sap:quickinfo="Region for the Game"/><Property Name="Language" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="language"
+					sap:quickinfo="Language for game"/><Property Name="Server" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="server" sap:quickinfo="Server for game"/><NavigationProperty Name="to_Player" Relationship="ZGAMES_SRV_01.assoc_7B2A0DF02A994088EE453DE53E5F1CF0"
+					FromRole="FromRole_assoc_7B2A0DF02A994088EE453DE53E5F1CF0" ToRole="ToRole_assoc_7B2A0DF02A994088EE453DE53E5F1CF0"/></EntityType>
+			<EntityType Name="ZC_PLAYERS_SBType" sap:label="players view for consumption" sap:content-version="1">
+				<Key><PropertyRef Name="Username"/></Key><Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name"/><Property Name="Email" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/><Property Name="Password" Type="Edm.String" MaxLength="40" sap:label="Initial Password" sap:quickinfo="Password as char. string"/><Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="Country Key"/><Property Name="GameName" Type="Edm.String" MaxLength="30" sap:label="Name 1" sap:quickinfo="Name"/></EntityType>
+			<ComplexType Name="UserCheck"><Property Name="Zexists" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="exists" sap:creatable="false" sap:updatable="false"
+				sap:sortable="false" sap:filterable="false"/></ComplexType>
+			<Association Name="assoc_7B2A0DF02A994088EE453DE53E5F1CF0" sap:content-version="1"><End Type="ZGAMES_SRV_01.ZC_GAMESType" Multiplicity="1" Role="FromRole_assoc_7B2A0DF02A994088EE453DE53E5F1CF0"/><End Type="ZGAMES_SRV_01.ZC_PLAYERS_SBType" Multiplicity="*" Role="ToRole_assoc_7B2A0DF02A994088EE453DE53E5F1CF0"/></Association>
+			<Association Name="Gameplayer" sap:content-version="1"><End Type="ZGAMES_SRV_01.Games" Multiplicity="1" Role="FromRole_Gameplayer"/><End Type="ZGAMES_SRV_01.Players" Multiplicity="*" Role="ToRole_Gameplayer"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Gameplayer"><PropertyRef Name="Name"/></Principal>
+					<Dependent Role="ToRole_Gameplayer"><PropertyRef Name="Game"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZGAMES_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="ZC_GAMES" EntityType="ZGAMES_SRV_01.ZC_GAMESType" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:content-version="1"/><EntitySet Name="ZC_PLAYERS_SB" EntityType="ZGAMES_SRV_01.ZC_PLAYERS_SBType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="ImageSet" EntityType="ZGAMES_SRV_01.Image" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="GamesSet" EntityType="ZGAMES_SRV_01.Games" sap:content-version="1"/><EntitySet Name="PlayersSet" EntityType="ZGAMES_SRV_01.Players" sap:content-version="1"/>
+				<AssociationSet Name="GameplayerSet" Association="ZGAMES_SRV_01.Gameplayer" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="GamesSet" Role="FromRole_Gameplayer"/><End EntitySet="PlayersSet" Role="ToRole_Gameplayer"/></AssociationSet>
+				<AssociationSet Name="assoc_7B2A0DF02A994088EE453DE53E5F1CF0" Association="ZGAMES_SRV_01.assoc_7B2A0DF02A994088EE453DE53E5F1CF0"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_GAMES" Role="FromRole_assoc_7B2A0DF02A994088EE453DE53E5F1CF0"/><End EntitySet="ZC_PLAYERS_SB" Role="ToRole_assoc_7B2A0DF02A994088EE453DE53E5F1CF0"/></AssociationSet>
+				<FunctionImport Name="CheckUser" ReturnType="ZGAMES_SRV_01.UserCheck" m:HttpMethod="POST" sap:action-for="ZGAMES_SRV_01.Players"><Parameter Name="Player" Type="Edm.String" Mode="In"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGAMES_SRV_01.ZGAMES_SRV_01_Entities">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGAMES_SRV_01/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGAMES_SRV_01/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

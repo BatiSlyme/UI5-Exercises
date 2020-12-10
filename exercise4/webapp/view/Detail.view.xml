@@ -1,0 +1,18 @@
+<mvc:View controllerName="kpmg.com.exercise4.controller.Detail" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="Details">
+		<!--<ObjectHeader-->
+		<!--intro="{gamesModel>Zserver}"-->
+		<!--title="{gamesModel>Zlanguage}"-->
+		<!--/>-->
+	<!--	</List headerText="Details">
+			</InputListItem label="Server"/>
+				<Input value="{gamesModel>Zserver}"/>
+			</InputListItem>
+			<InputListItem label="Language">
+				<Input value="{gamesModel>Zlanguage}"/>
+			</InputListItem>
+		</List>
+		<Button text="Save" press=".onSave">Save</Button>-->
+		
+	</Page>
+</mvc:View>

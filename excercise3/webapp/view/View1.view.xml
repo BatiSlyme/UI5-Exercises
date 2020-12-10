@@ -1,0 +1,53 @@
+<mvc:View controllerName="com.sap.excercise3.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>					<Table id="idProductsTable" inset="false" items="{ path: 'productsModel>/ProductCollection' }">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="search"/>
+									<ToolbarSpacer/>
+									<SearchField width="50%" search=".onFilterProducts"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="12em">
+									<Text text="Product ID"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="Supplier"/>
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+									<Text text="Dimensions"/>
+								</Column>
+								<Column hAlign="End">
+									<Text text="Price"/>
+								</Column>
+								<Column hAlign="End">
+									<Text text="Quality"/>
+								</Column>
+								<Column hAlign="End">
+									<Text text="Status"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{Name}" text="{productsModel>ProductId}"/>
+										<Text text="{productsModel>SupplierName}"/>
+										<Text text="{productsModel>Width} x {productsModel>Depth} x {productsModel>Height} {productsModel>DimUnit}"/>
+										<ObjectNumber
+											number="{ parts: [{path: 'productsModel>Price'}, {path: 'productsModel>/CurrencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+											unit="{productsModel>/CurrencyCode}" state="{= ${productsModel>Price} > 500 ? 'Error' : 'Success' }"/>
+										<Text text="{ path: 'productsModel>Price', formatter: '.formatter.getQuality' }"/>
+										<Text text="{productsModel>Status}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table></content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

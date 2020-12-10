@@ -1,0 +1,28 @@
+<mvc:View controllerName="kpmg.com.exercise4.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Games Name">
+					<content>
+						<VBox fitContainer="true">
+							<Table id="gamesTable" inset="false" items="{ path: 'gamesModel>/GamesSet'}" class="sapFDynamicPageAlignContent" width="auto">
+								<columns>
+									<Column width="12em">
+										<Text text="Game Name"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press=".onListItemPress">
+										<cells>
+											<ObjectIdentifier title="{gamesModel>Name}"	/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
