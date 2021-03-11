@@ -1,0 +1,29 @@
+<mvc:View controllerName="com.kmpg.Caner5.controller.Create" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns="sap.m" xmlns:semantic="sap.f.semantic" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page id="floatingFooterPage" title="Create">
+				<content>
+					<f:SimpleForm id="SimpleFormToolbar" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+						emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" ariaLabelledBy="Title1">
+						<f:toolbar>
+							<Toolbar>
+								<Title text="Enter a new Document Number"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</f:toolbar>
+						<Label text="New Document"/>
+						<Input id="Input" value="{createView>/Vbeln}"/>
+					</f:SimpleForm>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" id="rbtn" text="Save" press="oSave"/>
+						<Button xmlns="sap.m" id="sbtn" text="Cancel" press="oCancel"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

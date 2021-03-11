@@ -1,0 +1,56 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.kmpg.Caner5.controller.editHeader"
+	xmlns:l="sap.ui.layout" xmlns:semantic="sap.f.semantic" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="Edit">
+				<content>
+					<PullToRefresh id="pullToRefresh" refresh="handleRefresh"/>
+					<f:SimpleForm id="SimpleFormToolbar" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+						emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" ariaLabelledBy="Title1">
+						<f:toolbar>
+							<Toolbar>
+								<Title text="Edit the header Data"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</f:toolbar>
+						<Label text="Doc. Number"/>
+						<Input id="Vbeln" value="{Vbeln}" editable="false"/>
+						<Label text="Created by"/>
+						<Input id="Ernam" value="{Ernam}"/>
+						<Label text="Sales Org."/>
+						<Input id="Vkorg" value="{Vkorg}"/>
+						<Label text="Delivery Type"/>
+						<Input id="Lfart" value="{Lfart}"/>
+						<Label text="Delivery Block"/>
+						<Input id="Lifsk" value="{Lifsk}"/>
+						<!--<DatePicker id="Lifsk" change="handleChange" value="{path:'Lifsk', type:'sap.ui.model.type.Date'}" class="sapUiSmallMarginBottom"/>-->
+						<Label text="Customer"/>
+						<Input id="Kunnr" value="{Kunnr}" showValueHelp="true" valueHelpRequest="onSearch"/>
+						<Label text="Sold to Party"/>
+						<Input id="KunnrName" value="{KunnrName}" editable="false"/>
+						<Label text="Sold-To Party"/>
+						<Input id="Kunag" value="{Kunag}"/>
+						<Label text="Sold to Party"/>
+						<Input id="KunagName" value="{KunagName}" editable="false"/>
+						<Label text="Actual GI Date"/>
+						<!--<Input id="WadatIst" value="{WadatIst}"/>-->
+						<DatePicker id="WadatIst" change="handleChange" value="{path:'WadatIst', type:'sap.ui.model.type.Date'}" class="sapUiSmallMarginBottom"/>
+						<Label text="Total Weight"/>
+						<Input id="Btgew" value="{Btgew}"/>
+						<Label text="Net weight"/>
+						<Input id="Ntgew" value="{Ntgew}"/>
+						<Label text="Weight unit"/>
+						<Input id="Gewei" value="{Gewei}"/>
+					</f:SimpleForm>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button id="rbtn" text="Save" press="oSave"/>
+						<Button id="sbtn" text="Cancel" press="oCancel"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

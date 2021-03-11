@@ -1,0 +1,39 @@
+<mvc:View controllerName="com.kmpg.Caner5.controller.Item" xmlns="sap.m" xmlns:semantic="sap.f.semantic" xmlns:t="sap.ui.table"
+	xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" busyIndicatorDelay="0">
+	<Page title="Details" showNavButton="true" navButtonPress=".onNavBack" class="sapUiResponsiveContentPadding">
+		<content>
+			<!--<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"-->
+			<!--columnsM="1">-->
+			<VBox fitContainer="true" alignContent="Center">
+				<Label text="Sales document:"/>
+				<Text text="{Vbeln}"/>
+				<Label text="Item:"/>
+				<Text text="{Posnr}"/>
+				<Label text="Item category"/>
+				<Text text="{Pstyv}"/>
+				<Label text="Material:"/>
+				<Text text="{Matnr}"/>
+				<Label text="Description:"/>
+				<Text text="{Maktx}"/>
+				<Label text="Material Group:"/>
+				<Text text="{Matkl}"/>
+				<Label text="Matl Grp Desc.:"/>
+				<Text text="{Wgbez}"/>
+				<Label text="Plant"/>
+				<Text text="{Werks}"/>
+				<Label text="Name 1:"/>
+				<Text text="{Name1}"/>
+				<Label text="Delivery Qty:"/>
+				<Text text="{Lfimg}"/>
+				<Label text="Reference Doc."/>
+				<Text text="{Vgbel}"/>
+				<Label text="Reference Item:"/>
+				<Text text="{Vgpos}"/>
+				<Label text="Order quantity:"/>
+				<Text text="{Kwmeng}"/>
+			</VBox>
+
+			<!--</f:SimpleForm>-->
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="com.kmpg.Caner5.controller.editHeader">
+	<SelectDialog  noDataText="No Records Found" title="Select Customer Number" liveChange="handleTableValueHelpSearch"
+		confirm="handleTableValueHelpConfirm" search="onFilterKunnr" cancel="handleTableValueHelpCancel" growingThreshold='10' contentWidth="50px"
+		contentHeight="250px"><StandardListItem/>
+	</SelectDialog>
+	<!--<ViewSettingsDialog cancel="handleCancel" confirm="handleConfirm" id="dialogFilter" resetFilters="handleResetFilters">-->
+	<!--	<filterItems>-->
+	<!--		<ViewSettingsFilterItem id="filterItemsId" items="{OData>/ZkunnrSet}" key="myFilter" text="Employee Name">-->
+	<!--			<items>-->
+	<!--				<ViewSettingsItem key="{ZkunnrSet>Kunnr}" text="{ZkunnrSet>Name1}"></ViewSettingsItem>-->
+	<!--			</items>-->
+	<!--		</ViewSettingsFilterItem>-->
+	<!--	</filterItems>-->
+	<!--</ViewSettingsDialog>-->
+</core:FragmentDefinition>

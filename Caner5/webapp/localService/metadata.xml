@@ -1,0 +1,44 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZSDDOCUMENT_ODATA_MV_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Items" sap:content-version="1">
+				<Key><PropertyRef Name="Vbeln"/></Key><Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales document"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Item" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pstyv" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Item category" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Material" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Matkl" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Material Group" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Wgbez" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Matl Grp Desc."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lfimg" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Delivery Qty"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vgbel" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Reference Doc."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vgpos" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Reference Item" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kwmeng" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:unicode="false" sap:label="Order quantity"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Headers" sap:content-version="1">
+				<Key><PropertyRef Name="Vbeln"/></Key><Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales document"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ernam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Created by" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Org." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lfart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Delivery Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifsk" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Delivery Block" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="HeadToItemNav" Relationship="ZSDDOCUMENT_ODATA_MV_SRV.HeadToItemAss" FromRole="FromRole_HeadToItemAss"
+					ToRole="ToRole_HeadToItemAss"/></EntityType>
+			<EntityType Name="Zsdnr" sap:content-version="1">
+				<Key><PropertyRef Name="Vbeln"/></Key><Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Delivery" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<Association Name="HeadToItemAss" sap:content-version="1"><End Type="ZSDDOCUMENT_ODATA_MV_SRV.Headers" Multiplicity="1" Role="FromRole_HeadToItemAss"/><End Type="ZSDDOCUMENT_ODATA_MV_SRV.Items" Multiplicity="*" Role="ToRole_HeadToItemAss"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HeadToItemAss"><PropertyRef Name="Vbeln"/></Principal>
+					<Dependent Role="ToRole_HeadToItemAss"><PropertyRef Name="Vbeln"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZSDDOCUMENT_ODATA_MV_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ItemsSet" EntityType="ZSDDOCUMENT_ODATA_MV_SRV.Items" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="HeadersSet" EntityType="ZSDDOCUMENT_ODATA_MV_SRV.Headers" sap:deletable="false" sap:searchable="true"
+				sap:content-version="1"/><EntitySet Name="ZsdnrSet" EntityType="ZSDDOCUMENT_ODATA_MV_SRV.Zsdnr" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="HeadToItemAssSet" Association="ZSDDOCUMENT_ODATA_MV_SRV.HeadToItemAss" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HeadersSet" Role="FromRole_HeadToItemAss"/><End EntitySet="ItemsSet" Role="ToRole_HeadToItemAss"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZSDDOCUMENT_ODATA_MV_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZSDDOCUMENT_ODATA_MV_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

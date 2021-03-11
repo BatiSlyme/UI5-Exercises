@@ -1,0 +1,96 @@
+<mvc:View controllerName="com.kmpg.Caner5.controller.Detail" xmlns="sap.m" xmlns:semantic="sap.f.semantic" xmlns:layout="sap.ui.layout"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc">
+	<semantic:SemanticPage id="detailPage" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" showFooter="true">
+		<semantic:titleHeading>
+			<Title text="Header Data Info" level="H2"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<FlexBox wrap="Wrap">
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<ObjectStatus title="Doc. Number" text="{Vbeln}"/>
+					<ObjectStatus title="Created by" text="{Ernam}"/>
+					<ObjectStatus title="Sales Org." text="{Vkorg}"/>
+					<ObjectStatus title="Delivery Type" text="{Lfart}"/>
+					<ObjectStatus title="Delivery Block" text="{Lifsk}"/>
+					<ObjectStatus title="Customer" text="{Kunnr}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd"><ObjectStatus title="Actual GI Date" text="{WadatIst}"/>
+					<ObjectStatus title="Sold to Party" text="{KunagName}"/>
+					<ObjectStatus title="Total Weight" text="{Btgew}"/>
+					<ObjectStatus title="Net weight" text="{Ntgew}"/>
+					<ObjectStatus title="Weight unit" text="{Gewei}"/>
+					<ObjectStatus title="Sold to Party" text="{KunnrName}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<ObjectStatus title="Sold-To Party" text="{Kunag}"/>
+				</layout:VerticalLayout>
+			</FlexBox>
+			<!--<ObjectAttribute title="" text=""/>-->
+			<!--<ObjectAttribute title="Kunnr"/>-->
+			<!--<ObjectAttribute title=""/>-->
+			<!--<ObjectAttribute title=""/>-->
+			<!--<ObjectAttribute title=""/>-->
+			<!--<ObjectAttribute title=""/>-->
+			<!--<ObjectAttribute title=""/>-->
+			<!--<ObjectAttribute title="" textDirection="RTL"/>-->
+			<!--<ObjectAttribute title=""/>-->
+			<!--{i18n>priceTitle}-->
+		</semantic:headerContent>
+		<semantic:content>
+			<Table id="lineItemsList" width="auto" items="{HeadToItemNav}" updateFinished=".onListUpdateFinished"
+				noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}">
+				<headerToolbar>
+					<Toolbar>
+						<Title id="lineItemsTitle" text="{detailView>/lineItemListTitle}" titleStyle="H3" level="H3"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>detailLineItemTableIDColumn}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+						<Text text="Item"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+						<Text text="Material"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press=".onSelectionChange">
+						<cells>
+							<ObjectIdentifier title="{Name1}" text="{Vbeln}"/>
+							<Text text="{Posnr}"/>
+							<Text text="{Matnr}"/>
+							<ObjectNumber/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+		<!--Semantic ShareMenu Buttons-->
+		<!--<semantic:sendEmailAction>-->
+		<!--	<semantic:SendEmailAction id="shareEmail" press=".onSendEmailPress"/>-->
+		<!--</semantic:sendEmailAction>-->
+		<!--<semantic:shareInJamAction>-->
+		<!--	<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press=".onShareInJamPress"/>-->
+		<!--</semantic:shareInJamAction>-->
+		<!--<semantic:saveAsTileAction>-->
+		<!--	<footerbar:AddBookmarkButton id="shareTile" title="Hello"/>-->
+		<!--</semantic:saveAsTileAction>-->
+		<!--<semantic:closeAction>-->
+		<!--	<semantic:CloseAction id="closeColumn" press=".onCloseDetailPress"/>-->
+		<!--</semantic:closeAction>-->
+		<!--<semantic:fullScreenAction>-->
+		<!--	<semantic:FullScreenAction id="enterFullScreen"-->
+		<!--		visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}" press=".toggleFullScreen"/>-->
+		<!--</semantic:fullScreenAction>-->
+		<!--<semantic:exitFullScreenAction>-->
+		<!--	<semantic:ExitFullScreenAction id="exitFullScreen"-->
+		<!--		visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}" press=".toggleFullScreen"/>-->
+		<!--</semantic:exitFullScreenAction>-->
+		<semantic:footerCustomActions>
+			<Button text="Edit" press="onEdit" width="150px"/>
+			<Button text="Back" press="onBack" width="150px"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>
