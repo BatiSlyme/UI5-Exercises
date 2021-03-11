@@ -1,0 +1,1 @@
+exercises for week 8 Simeon Bakalov UI 5 full stack
